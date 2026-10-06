@@ -57,7 +57,7 @@ create database my_db;
 use my_db;
 ```
 
-Then import the below files into mysql workbench and execute:
+Then import the below files into mysql workbench and execute them in the below order:
 
 ```sql
 sql/schema.sql
