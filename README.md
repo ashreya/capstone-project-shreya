@@ -50,10 +50,10 @@ sql/seed_data.sql
 sql/reports.sql
 ```
 
-### SQLite
+### Mysql
 
 ```bash
-crate database my_db;
+create database my_db;
 use my_db;
 ```
 
