@@ -77,6 +77,13 @@ The seed data should load:
 
 ## 2. Python Analysis & Visualization
 
+Before running the below files install the following modules
+```bash
+pip install pandas
+pip install google-genai
+pip install matplotlib
+```
+
 Run both scripts from the **repository root**, in this order:
 
 ```bash
