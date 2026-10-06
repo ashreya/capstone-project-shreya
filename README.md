@@ -40,7 +40,7 @@ The pipeline uses the raw CSV files in `data/` without modifying the source data
 
 ## 1. SQL Relational Layer
 
-Use **SQLite** or another SQL engine compatible with the provided SQL syntax.
+Create a database in mysql worbench and select it.
 
 Run the files in this order:
 
@@ -53,15 +53,16 @@ sql/reports.sql
 ### SQLite
 
 ```bash
-sqlite3 mamaearth.db
+crate database my_db;
+use my_db;
 ```
 
-Then execute:
+Then import the below fles into mysql workbench and execute:
 
 ```sql
-.read sql/schema.sql
-.read sql/seed_data.sql
-.read sql/reports.sql
+sql/schema.sql
+sql/seed_data.sql
+sql/reports.sql
 ```
 
 The seed data should load:
@@ -124,21 +125,7 @@ python narrator/generate_narrative.py
 
 ### With Gemini API Key
 
-Set `GOOGLE_API_KEY` as an environment variable.
-
-**Windows PowerShell:**
-
-```powershell
-$env:GOOGLE_API_KEY="YOUR_API_KEY"
-python narrator/generate_narrative.py
-```
-
-**macOS/Linux:**
-
-```bash
-export GOOGLE_API_KEY="YOUR_API_KEY"
-python narrator/generate_narrative.py
-```
+Set `GOOGLE_API_KEY` as an environment variable or create a .env file with GOOGLE_API_KEY= `<your API key>`.
 
 The script generates a three-section **Situation–Complication–Resolution (SCR)** narrative using the verified values in `narrator/findings.json`.
 
@@ -151,24 +138,7 @@ python narrator/generate_narrative.py
 ```
 
 When `GOOGLE_API_KEY` is unavailable, the script uses the deterministic **offline fallback**. This path requires no network access or API quota.
+Also there is funvtion in `generate_narrative.py` named `validate_numbers` that verifies the Numeric accuracy.
 
 ---
-
-## End-to-End Execution
-
-```bash
-# SQL
-sqlite3 mamaearth.db
-.read sql/schema.sql
-.read sql/seed_data.sql
-.read sql/reports.sql
-
-# Python
-python analysis/clean_and_eda.py
-python analysis/visualize.py
-
-# GenAI / Offline
-python narrator/generate_narrative.py
-```
-
 All reported figures are derived from the supplied raw data and flow from one pipeline layer to the next.
