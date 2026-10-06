@@ -154,4 +154,7 @@ UPDATE customers
 SET loyalty_tier = CASE WHEN city_tier = 1 THEN "Gold" ELSE "Silver" END;
 UPDATE customers
 SET loyalty_tier = "Silver" WHERE loyalty_tier = "SILVER";
+
+-- (Gold, 28)
+-- (Silver, 17)
 SELECT loyalty_tier, COUNT(*) FROM customers GROUP BY loyalty_tier; 
