@@ -138,7 +138,8 @@ python narrator/generate_narrative.py
 ```
 
 When `GOOGLE_API_KEY` is unavailable, the script uses the deterministic **offline fallback**. This path requires no network access or API quota.
-Also there is funvtion in `generate_narrative.py` named `validate_numbers` that verifies the Numeric accuracy.
+
+Also there is a function in `generate_narrative.py` named `validate_numbers` that verifies the Numeric accuracy.
 
 ---
 All reported figures are derived from the supplied raw data and flow from one pipeline layer to the next.
